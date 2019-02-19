@@ -5,7 +5,7 @@
 <div class="page-header">
 <h4>
 Clientes
-<a class="btn-success pull-right btn-showSpin btn btn-default active" rel="tooltip" href="<?php echo $base;?>Cuentas/Nuevo" data-title="" data-placement="left" data-original-title="" title="">
+<a class="btn-success pull-right btn-showSpin btn btn-default active" rel="tooltip" href="<?php echo $base;?>Cuentas/DatosGenerales" data-title="" data-placement="left" data-original-title="" title="">
 	Nuevo
 </a>
 </h4>

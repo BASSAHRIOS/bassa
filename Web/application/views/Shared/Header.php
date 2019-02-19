@@ -19,7 +19,7 @@
         <link href="<?= base_url() ?>public/css/style-responsive.css" rel="stylesheet" />
         <link href="<?= base_url() ?>public/css/AdminLTE.min.css" rel="stylesheet" >
         <link href="<?= base_url() ?>public/css/utilerias-1.1.1.css" rel="stylesheet" >
-        
+        <link href="<?= base_url() ?>public/css/site.css" rel="stylesheet" >
         <link rel="stylesheet" href="<?= base_url() ?>public/css/skins/_all-skins.min.css">
     </head>
     <body class="hold-transition skin-blue-light sidebar-mini">
