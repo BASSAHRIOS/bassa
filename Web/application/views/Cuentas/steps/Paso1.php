@@ -7,35 +7,47 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="razonsocial">Razon Social:</label>
-                            <input type="text" class="form-control" id="RazonSocial" name="RazonSocial">
+                            <input type="text" class="form-control" id="RazonSocial" name="RazonSocial" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="nombrecomercial">Nombre Comercial</label>
-                            <input type="text" class="form-control" id="NombreComercial" name="NombreComercial">
+                            <input type="text" class="form-control" id="NombreComercial" name="NombreComercial" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="rfc">R.F.C:</label>
-                            <input type="text" class="form-control" id="RFC" name="RFC">
+                            <input type="text" class="form-control" id="RFC" name="RFC" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="tipocliente">Tipo cliente:</label>
-                            <select class="form-control" id="idTipoCliente" name="idTipoCliente">
-
-                            </select>
+                            <?php echo "<select name='idTipoCliente' id='idTipoCliente' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstTiposCliente)) {
+                              foreach ($lstTiposCliente as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="tipoindustria">Tipo industria:</label>
-                            <select class="form-control" id="idTipoIndustria" name="idTipoIndustria">
-
-                            </select>
+                            <?php echo "<select name='idTipoIndustria' id='idTipoIndustria' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstTipoIndustria)) {
+                              foreach ($lstTipoIndustria as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -66,9 +78,15 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="estado">Estado:</label>
-                            <select class="form-control" id="idEstado" name="idEstado">
-
-                            </select>
+                            <?php echo "<select name='idEstado' id='idEstado' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstEstados)) {
+                              foreach ($lstEstados as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['NombreEstado']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                     </div>
                     <div class="row">
@@ -87,8 +105,15 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="areasOportunidad">Areas de oportunidad:</label>
-                            <select class="form-control" id="idAreasOportunidad" name="idAreasOportunidad">
-                            </select>
+                            <?php echo "<select multiple name='idAreasOportunidad' id='idAreasOportunidad' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstAreasOportunidad)) {
+                              foreach ($lstAreasOportunidad as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cp">Observaciones:</label>

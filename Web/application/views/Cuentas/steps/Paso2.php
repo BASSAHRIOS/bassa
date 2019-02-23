@@ -6,15 +6,27 @@
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="tipoequipo">Tipo de equipo:</label>
-                            <select class="form-control" id="idTipoEquipo" name="idTipoEquipo">
-
-                            </select>
+                            <?php echo "<select name='idTipoEquipo' id='idTipoEquipo' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstTiposEquipo)) {
+                              foreach ($lstTiposEquipo as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="marca">Marca</label>
-                            <select class="form-control" id="idMarca" name="idMarca">
-
-                            </select>
+                            <?php echo "<select name='idMarca' id='idMarca' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstMarcas)) {
+                              foreach ($lstMarcas as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="modelo">Modelo:</label>
@@ -33,23 +45,41 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="aplicacion">Aplicación:</label>
-                            <select class="form-control" id="idAplicacion" name="idAplicacion">
-
-                            </select>
+                            <?php echo "<select name='idAplicacion' id='idAplicacion' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstTiposAplicacion)) {
+                              foreach ($lstTiposAplicacion as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="tipoenfriamiento">Tipo enfriamiento:</label>
-                            <select class="form-control" id="idTipoEnfriamiento" name="idTipoEnfriamiento">
-
-                            </select>
+                            <?php echo "<select name='idTipoEnfriamiento' id='idTipoEnfriamiento' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstTiposEnfriamiento)) {
+                              foreach ($lstTiposEnfriamiento as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="tipocompresor">Tipo compresor:</label>
-                            <select class="form-control" id="idTipoCompresor" name="idTipoCompresor">
-
-                            </select>
+                            <?php echo "<select name='idTipoCompresor' id='idTipoCompresor' class='form-control'>";
+                            echo '<option value="0">SELECCIONE</option>'; 
+                            if (count($lstTiposCompresor)) {
+                              foreach ($lstTiposCompresor as $list) {
+                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
+                                }
+                            }
+                            echo "</select>";
+                            ?>
                         </div>
                         <div class="form-group col-md-4">
                             <br>
