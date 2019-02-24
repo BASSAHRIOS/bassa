@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="tipocliente">Tipo cliente:</label>
-                            <?php echo "<select name='idTipoCliente' id='idTipoCliente' class='form-control'>";
+                            <?php echo "<select name='idTipoCliente' id='idTipoCliente' class='form-control' required>";
                             echo '<option value="0">SELECCIONE</option>'; 
                             if (count($lstTiposCliente)) {
                               foreach ($lstTiposCliente as $list) {
@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="tipoindustria">Tipo industria:</label>
-                            <?php echo "<select name='idTipoIndustria' id='idTipoIndustria' class='form-control'>";
+                            <?php echo "<select name='idTipoIndustria' id='idTipoIndustria' class='form-control' required>";
                             echo '<option value="0">SELECCIONE</option>'; 
                             if (count($lstTipoIndustria)) {
                               foreach ($lstTipoIndustria as $list) {
@@ -60,25 +60,25 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="calle">Calle</label>
-                            <input type="text" class="form-control" id="Calle" name="Calle">
+                            <input type="text" class="form-control" id="Calle" name="Calle" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="colonia">Colonia:</label>
-                            <input type="text" class="form-control" id="Colonia" name="Colonia">
+                            <input type="text" class="form-control" id="Colonia" name="Colonia" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="ciudad">Ciudad:</label>
-                            <input type="text" class="form-control" id="Ciudad" name="Ciudad">
+                            <input type="text" class="form-control" id="Ciudad" name="Ciudad" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="estado">Estado:</label>
-                            <?php echo "<select name='idEstado' id='idEstado' class='form-control'>";
+                            <?php echo "<select name='idEstado' id='idEstado' class='form-control' required>";
                             echo '<option value="0">SELECCIONE</option>'; 
                             if (count($lstEstados)) {
                               foreach ($lstEstados as $list) {
@@ -92,7 +92,7 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="cp">C.P.:</label>
-                            <input type="text" class="form-control" id="CP" name="CP">
+                            <input type="text" class="form-control" id="CP" name="CP" required>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="areasOportunidad">Areas de oportunidad:</label>
-                            <?php echo "<select multiple name='idAreasOportunidad' id='idAreasOportunidad' class='form-control'>";
+                            <?php echo "<select multiple name='idAreasOportunidad[]' id='idAreasOportunidad' class='form-control' required>";
                             echo '<option value="0">SELECCIONE</option>'; 
                             if (count($lstAreasOportunidad)) {
                               foreach ($lstAreasOportunidad as $list) {
@@ -117,7 +117,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cp">Observaciones:</label>
-                            <textarea class="form-control" name="Observaciones" id="Observaciones"></textarea>
+                            <textarea class="form-control" name="Observaciones" id="Observaciones" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                        </div>
                        <div class="form-group col-md-1">
                            <label for="ext">Ext:</label>
-                           <input type="text" class="form-control" id="ExtensionContacto" name="ExtensionContacto">
+                           <input type="text" class="form-control" id="ExtensionContacto" name="ExtensionContacto" >
                        </div>
                    </div>
                    <div class="row">

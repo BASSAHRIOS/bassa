@@ -45,6 +45,18 @@ class Cuentas extends CI_Controller {
         $this->layout->view('Cuentas/layout_main_wizard',$data);
         if(isset($_POST['RazonSocial']))
         {
+            $idAreasOportunidad=$_POST["idAreasOportunidad"];
+            header('Content-Type: text/xml');
+            echo '<items>';
+            echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>";
+            for ($i=0;$i<count($idAreasOportunidad);$i++)    
+            {
+                echo "<areas>\n";
+                echo " <AreaOpCtaId>{$idAreasOportunidad[$i]}</AreaOpCtaId>\n";
+                echo "</areas>\n\n";
+            }
+            echo '</items>';
+            
             $primaryKey=0;
             redirect("Cuentas/Equipos/".$primaryKey."","refresh");
         }
