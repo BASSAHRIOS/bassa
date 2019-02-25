@@ -23,7 +23,7 @@ class Acceso_model extends CI_Model {
           //session_start();
           //echo "voy a iniciar sesion =>". $row['Nombre'];
           $_SESSION["userType"] = 9;
-          $_SESSION["Id"] = $row['Id'];
+          $_SESSION["IdUsuario"] = $row['Id'];
           $_SESSION["PerfilId"] = $row['PerfilId'];
           $_SESSION["Nombre"] = $row['Nombre'];
           //$_SESSION["ClienteId"]=$row['ClienteId'];
@@ -46,7 +46,7 @@ class Acceso_model extends CI_Model {
       return false;
     }
     
-    if(!isset($_SESSION["Id"])){
+    if(!isset($_SESSION["IdUsuario"])){
       return false;
     }
     

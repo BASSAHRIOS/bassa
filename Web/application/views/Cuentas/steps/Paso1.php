@@ -105,15 +105,21 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="areasOportunidad">Areas de oportunidad:</label>
-                            <?php echo "<select multiple name='idAreasOportunidad[]' id='idAreasOportunidad' class='form-control' required>";
-                            echo '<option value="0">SELECCIONE</option>'; 
-                            if (count($lstAreasOportunidad)) {
-                              foreach ($lstAreasOportunidad as $list) {
-                                    echo "<option value='".$list['Id']."'>".$list['Descripcion']."</option>";
-                                }
-                            }
-                            echo "</select>";
-                            ?>
+                            <table>
+                                <tbody>
+                                    <?php
+                                        if (is_array($lstAreasOportunidad) > 0):
+                                        foreach ($lstAreasOportunidad as $key): ?>
+                                        <tr>
+                                            <td><input type="checkbox" name="idAreasOportunidad[]" value="<?=$key['Id'];?>"></td>
+                                            <td><?=$key['Descripcion'];?></td>
+                                        </tr>
+                                    <?php 
+                                        endforeach;  
+                                        endif;
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cp">Observaciones:</label>

@@ -8,7 +8,7 @@ class Cuentas extends CI_Controller {
             $this->load->library('form_validation','session');
             $this->load->helper(array('form','url','date','zonahoraria'));
             $this->load->model(array(
-                 'Acceso_model','Estados_model','TiposCliente_model','TiposIndustria_model'
+                 'Acceso_model','Cuentas_model','Estados_model','TiposCliente_model','TiposIndustria_model'
                 ,'TiposEquipo_model','Marcas_model','TiposAplicacion_model'
                 ,'TiposEnfriamiento_model','TiposCompresor_model','AreasOportunidad_model'
              ));
@@ -30,7 +30,6 @@ class Cuentas extends CI_Controller {
         $data["msgError"]="";
         $data['title_for_layout'] = 'Cuentas';
         $_SESSION['Paso'] = "1";
-        
         $lst =$this->Estados_model->getAll();          
         $data["lstEstados"] = $lst;
         $lst2 =$this->TiposCliente_model->getAll();          
@@ -46,19 +45,26 @@ class Cuentas extends CI_Controller {
         if(isset($_POST['RazonSocial']))
         {
             $idAreasOportunidad=$_POST["idAreasOportunidad"];
-            header('Content-Type: text/xml');
-            echo '<items>';
-            echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>";
-            for ($i=0;$i<count($idAreasOportunidad);$i++)    
-            {
-                echo "<areas>\n";
-                echo " <AreaOpCtaId>{$idAreasOportunidad[$i]}</AreaOpCtaId>\n";
-                echo "</areas>\n\n";
-            }
-            echo '</items>';
+            //print_r($idAreasOportunidad);
+            $x=$this->toXml($idAreasOportunidad);
+            echo 'x->'.$x;
             
-            $primaryKey=0;
-            redirect("Cuentas/Equipos/".$primaryKey."","refresh");
+            $response=$this->Cuentas_model->Nuevo(
+                $_POST['RazonSocial'],
+                $_POST['NombreComercial'],
+                $_POST['RFC'],
+                $_POST['idTipoCliente'],
+                $_POST['idTipoIndustria'],
+                $_POST['Calle'],
+                $_POST['Colonia'],
+                $_POST['Ciudad'],
+                $_POST['idEstado'],
+                $_POST['CP'],
+                $_SESSION["IdUsuario"]
+            );
+            print_r($response);
+            $primaryKey=$response->Id;
+            //redirect("Cuentas/Equipos/".$primaryKey."","refresh");
         }
     }
     
@@ -82,11 +88,25 @@ class Cuentas extends CI_Controller {
         $data["lstTiposCompresor"] = $lst6;
         
         $this->layout->view('Cuentas/layout_main_wizard',$data);
-        if(isset($_POST['Modelo']))
-        {
-            $primaryKey=0;
-            redirect("Cuentas/Lista","refresh");
+       
+        redirect("Cuentas/Lista","refresh");
+    }
+    
+    public static function toXml($array)
+    {
+        if (count($array) == 0) {
+            throw new Exception("Array cannot be empty");
         }
+        $xml = new SimpleXMLElement('<xml/>');
+        $track = $xml->addChild('users');
+        for($i=0;$i<count($array);$i++)
+        {
+            $track->addChild('user');
+            $track->addChild('Id',$i);
+            $track->addChild('AreaOpCtaId',$array[$i]);
+            $i = $i + 1;
+        }
+        return $xml->asXML();
     }
     
     public function Crear()
